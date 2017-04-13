@@ -10,12 +10,11 @@ import java.io.IOException;
 public class StringDefaultValueAdapter extends TypeAdapter<String> {
 
     public void write(JsonWriter out, String value) throws IOException {
-        out.value(value == null ? "world" : value);
+        out.value(value == null ? "writenull" : value);
     }
 
     public String read(JsonReader in) throws IOException {
-        in.nextName();
         String value = in.nextString();
-        return value == null? "":value;
+        return value == null? "nullread":value;
     }
 }

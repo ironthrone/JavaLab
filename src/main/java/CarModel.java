@@ -3,6 +3,7 @@
  */
 public class CarModel extends Model {
     public String brand;
+    public String country;
     public EngineModel engine;
 
     @Override
