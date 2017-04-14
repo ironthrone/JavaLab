@@ -1,6 +1,6 @@
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.google.gson.*;
 import org.junit.Test;
+
 
 /**
  * Created by Administrator on 2017/4/13.
