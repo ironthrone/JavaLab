@@ -1,3 +1,5 @@
+package json;
+
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
@@ -12,7 +14,7 @@ public class CatchExceptionDeserializer implements JsonDeserializer<Object> {
     public Object deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         try {
 
-            //行不通，这是递归调用
+            //行不通，这是递归调用，可以另创建个Gson对象进行解析
             return context.deserialize(json, typeOfT);
         } catch (Exception e) {
             e.printStackTrace();

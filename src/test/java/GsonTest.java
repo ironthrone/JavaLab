@@ -1,4 +1,5 @@
 import com.google.gson.*;
+import json.*;
 import org.junit.Test;
 
 
@@ -25,6 +26,14 @@ public class GsonTest {
         String badJson = "{\"brand\":\"bench\",\"engine\":}";
         Gson gson = new Gson();
         System.out.println(GsonToolkit.safeFromJson(gson,badJson,CarModel.class));
+    }
+
+    @Test
+    public void numberDeserializer() {
+        String car = "{\"brand\":\"bench\",\"country\":\"\",\"engineCount\":\"\"}";
+        Gson gson = new GsonBuilder().registerTypeAdapter(Integer.class, new BadIntegerDeserializer())
+                .registerTypeAdapter(int.class,new BadIntegerDeserializer()).create();
+        System.out.println(gson.fromJson(car,CarModel.class));
     }
 
     /**
